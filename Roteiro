@@ -1,0 +1,33 @@
+1️⃣ Definir entidade principal
+Ex: usuário, produto, pedido
+
+usuário
+    id
+    nome
+    email
+
+produto
+pedido
+cliente
+tarefa
+    id
+    título
+    status
+    usuário_id
+
+2️⃣ Criar o modelo (models)
+→ estrutura dos dados
+
+3️⃣ Criar o schema (schemas)
+→ como os dados entram e saem da API
+
+4️⃣ Criar o repository
+→ acesso ao banco (CRUD puro)
+
+5️⃣ Criar o service
+→ regras de negócio
+
+6️⃣ Criar as rotas (API)
+→ endpoints (GET, POST, PUT, DELETE)
+
+7️⃣ Testar tudo
