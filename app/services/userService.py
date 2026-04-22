@@ -1,6 +1,8 @@
 from models.user import User
-from schemas.schemasUser import UserRequest
+from schemas.userCreate import UserCreate
+from schemas.userUpdate import UserUpdate
 from repositories.userRepositorie import UserRepositorie
+from models.userRole import UserRole
 
 class UserServices():
     def __init__(self):
@@ -8,7 +10,7 @@ class UserServices():
 
     def create_user(self, name: str, email: str)-> User:
         #Válida nome e e-mail
-        validatedData = UserRequest(name, email)
+        validatedData = UserCreate(name, email)
 
         #Verifica se já tem o e-mail no banco de dados
         if self.get_user_by_email(email) is not None:
@@ -55,7 +57,20 @@ class UserServices():
             print(f"Usuário removido\nNome: {user.name}\ne-mail: {user.email}")
         else:
             print("Contas com Role admin não podem ser removidas.")
+    
+    def user_update(self,id: int, name: str = None, email: str = None, role: str = None):
+        user = self.get_user_by_id(id)
+        UserUpdate(name, email, role)
         
-
-#mudança teste
+        if user is None:
+            print(f"ID '{id}' não cadastrado no banco de dados.")
+            return None
         
+        if name is not None:
+            self.repositorie.dataBase[user.id].name = name 
+        
+        if email is not None:
+            self.repositorie.dataBase[user.id].email = email
+            
+        if role is not None:
+            self.repositorie.dataBase[user.id].role = UserRole(role)

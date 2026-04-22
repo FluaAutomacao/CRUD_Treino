@@ -1,6 +1,8 @@
+from models.userRole import UserRole
+
 class User:
     # ATRIBUTOS / CONSTANTES
-    DEFAULT_ROLE = "user"
+    DEFAULT_ROLE = UserRole.USER
 
     # CONSTRUTORES
 
@@ -9,6 +11,3 @@ class User:
         self.email = email
         self.id = -1
         self.role = self.DEFAULT_ROLE
-        #self.user = [self.name, self.email]
-        #return self.user
-        # return [self.name, self.email, self.id]

@@ -1,21 +1,15 @@
-class UserRequest():
-
-    def __init__(self, name: str, email: str):
-        self.validate_name(name)
-        self.validate_email(email)
-        self.name = name
-        self.email = email
-        
-
-    def validate_name (self, name: str):
+class UserValidate:
+    @staticmethod
+    def validate_name (name: str):
         if name == "":
             raise ValueError("Nome está vazio.")
         for char in name:
             if not(char.isalpha()):
                 if char != " ":
                     raise ValueError("Apenas letras são aceitas no nome.")
-                
-    def validate_email (self, email: str):
+    
+    @staticmethod
+    def validate_email (email: str):
         count = 0
         index = -1
 

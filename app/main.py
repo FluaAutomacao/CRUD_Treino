@@ -108,3 +108,17 @@ print("-"*20 + "\n" * espacamento)
 
 for key, value in services.get_users().items():
     print(f"ID: {key}\nNome:{value.name}\nE-mail: {value.email}"+"\n" * espacamento)
+
+
+#Separador dos itens no terminal---------*----------*---------*---------*----------*---------*
+print("-"*20 + "\n" * espacamento)
+
+#Atualização de usuário
+
+idUpdate = 1
+
+services.user_update(id = idUpdate, name = "Joanazes Bebaz", email = "joninhas@bol.com.br")
+
+
+userUpdated = services.get_users()[idUpdate]
+print(f"Usuário Atualizado\nID: {idUpdate}\nNome:{userUpdated.name}\nE-mail: {userUpdated.email}\nRole: {userUpdated.role}"+"\n" * espacamento)
