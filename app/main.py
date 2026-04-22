@@ -41,17 +41,20 @@ for key, value in services.get_users().items():
 #Separador dos itens no terminal---------*----------*---------*---------*----------*---------*
 print("-"*20 + "\n" * espacamento)
 #Testa a procura de usuário por ID - ID a ser procurada
-searchID = 0
+searchID = 7
 
 #Procura usuário por ID - Retorna erro caso ID não seja válida
 searchedUserByID = services.get_user_by_id(searchID)
+if searchedUserByID:
+    print(f"Procurado por ID:\nID: {searchID}\nNome: {searchedUserByID.name}\nE-mail: {searchedUserByID.email}")
+else:
+    print(f"Não há cadastro ID '{searchID}' no banco de dados.")
 
-# print(f"Procurado por ID:\nID: {searchID}\nNome: {searchedUserByID.name}\nE-mail: {searchedUserByID.email}")
 
 #Separador dos itens no terminal---------*----------*---------*---------*----------*---------*
 print("-"*20 + "\n" * espacamento)
 #Procura usuário por nome - nome a ser procurado
-searchName = "EduardoPereira"
+searchName = "Eduardo Pereira"
 
 #Se encontra usuário, printa seus dados. Se não encontra, informa usúaro não encontrado.
 
@@ -60,7 +63,7 @@ if userFound:
     for user in userFound:
         print(f"Procurado por nome:\nID: {user.id}\nNome: {user.name}\nE-mail: {user.email}")
 else:
-    print(f"Não ha cadastro '{searchName}' no banco de dados.")
+    print(f"Não há cadastro '{searchName}' no banco de dados.")
 
 #Separador dos itens no terminal---------*----------*---------*---------*----------*---------*
 print("-"*20 + "\n" * espacamento)
@@ -92,13 +95,13 @@ print("-"*20 + "\n" * espacamento)
 searchID = 0
 
 #Remoção de usuário do banco de dados - baseado no ID do usuário
-# userID = 8
-# services.user_delete_service((services.get_user_by_id(userID)))
+userID = 9
+services.user_delete_by_id(userID)
 
 #Remoção de usuário do banco de dados - baseado no nome
 userEmail = "eng_fgomes@outlook.com"
 # print(services.get_user_by_name(userName))
-services.user_delete_service((services.get_user_by_email(userEmail)))
+services.user_delete_by_email(userEmail)
 
 #Separador dos itens no terminal---------*----------*---------*---------*----------*---------*
 print("-"*20 + "\n" * espacamento)

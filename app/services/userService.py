@@ -24,10 +24,7 @@ class UserServices():
         return self.repositorie.dataBase
     
     def get_user_by_id(self, id:int) -> User:
-        user = self.get_users().get(id)
-        if user is None:
-            raise ValueError("ID não existe.")
-        return user
+        return self.get_users().get(id)
     
     def get_user_by_name(self, name: str) -> list:
         usersList = []
@@ -43,13 +40,22 @@ class UserServices():
             if value.email == email:
                 return value
     
+    def user_delete_by_id(self, id: int):
+        if id in self.get_users():
+            self.user_delete_service(self.get_user_by_id(id))
+
+    def user_delete_by_email(self, email: str):
+        user = self.get_user_by_email(email)
+        if user.id in self.get_users():
+            self.user_delete_service(user)      
+    
     def user_delete_service(self, user: User):
-        if user in self.get_users().values():
-            if user.role != "admin":
-                self.repositorie.user_delete(user)
-                print(f"Usuário removido\nNome: {user.name}\ne-mail: {user.email}")
-            else:
-                print("Contas com Role admin não podem ser removidas.")
+        if user.role != "admin":
+            self.repositorie.user_delete(user)
+            print(f"Usuário removido\nNome: {user.name}\ne-mail: {user.email}")
         else:
-            print("Usuário não encontrado no banco de dados.")
+            print("Contas com Role admin não podem ser removidas.")
+        
+
+#mudança teste
         
