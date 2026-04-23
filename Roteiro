@@ -1,19 +1,24 @@
 1️⃣ Definir entidade principal
-Ex: usuário, produto, pedido
 
-usuário
     id
-    nome
+    name
     email
+    username (se diferente do email)
+    profile_picture - deixar pra depois
+    birth_date
+    password_hash
+    role
 
-produto
-pedido
-cliente
-tarefa
-    id
-    título
-    status
-    usuário_id
+    phone_number
+    address (às vezes separado)
+
+    is_active
+    created_at
+    updated_at
+
+    last_login
+    failed_attempts
+    is_locked
 
 2️⃣ Criar o modelo (models)
 → estrutura dos dados
@@ -31,3 +36,6 @@ tarefa
 → endpoints (GET, POST, PUT, DELETE)
 
 7️⃣ Testar tudo
+
+
+

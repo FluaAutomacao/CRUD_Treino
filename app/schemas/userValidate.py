@@ -1,15 +1,16 @@
 class UserValidate:
     @staticmethod
-    def validate_name (name: str):
+    def validate_name (name: str) -> str:
         if name == "":
             raise ValueError("Nome está vazio.")
         for char in name:
             if not(char.isalpha()):
                 if char != " ":
                     raise ValueError("Apenas letras são aceitas no nome.")
+        return name
     
     @staticmethod
-    def validate_email (email: str):
+    def validate_email (email: str) -> str:
         count = 0
         index = -1
 
@@ -30,3 +31,5 @@ class UserValidate:
         
         if not ".com" in email:
             raise ValueError("e-mail não possui .com")
+        
+        return email
