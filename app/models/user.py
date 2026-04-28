@@ -33,6 +33,16 @@ class User:
         # self.failed_attempts =
         # self.is_locked =
 
+    
+    def apply_update(self, userUpdate):
+        for atribute, value in vars(userUpdate).items():
+            if value is not None and value != self.atribute:
+                setattr(self, atribute, value)
+                updated = True
+        
+        if updated:
+            self.updated_at = datetime.now(timezone.utc)
+
         
         
         

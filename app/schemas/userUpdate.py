@@ -7,7 +7,7 @@ class UserUpdate:
         self.email = email
         self.username = username
         self.role = role
-
+        
         #validação do nome a ser atualizado
         if self.name is not None:
             UserValidate.validate_name(name)

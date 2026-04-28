@@ -125,7 +125,7 @@ print("-"*20 + "\n" * espacamento)
 
 idUpdate = 1
 
-userToUpdate = UserUpdate(name = "Joanazes Bebaz", username = "Jojoyoyo", email = "joninhas@bol.com.br")
+userToUpdate = UserUpdate(name = "Joanazes Bebaz", username = "Jojoyoyo")
 services.user_update(id = idUpdate, user = userToUpdate)
 
 
